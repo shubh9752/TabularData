@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import DataGrid from './DataGrid';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h2>Posts</h2>
+      <DataGrid
+        apiEndpoint="https://jsonplaceholder.typicode.com/posts"
+        columns={['userId', 'id', 'title', 'body']}
+      />
+      <h2>Comments</h2>
+      <DataGrid
+        apiEndpoint="https://jsonplaceholder.typicode.com/comments"
+        columns={['postId', 'id', 'name', 'email', 'body']}
+      />
     </div>
   );
 }
